@@ -1,8 +1,8 @@
 [package]
-name = "contracts-node"
+name = "violet-node"
 version.workspace = true
 authors.workspace = true
-description = "Substrate node configured for smart contracts via `pallet-contracts`."
+description = "Violet Substrate node configured for smart contracts via `pallet-contracts and pallet-ordinals`."
 edition.workspace = true
 license.workspace = true
 build = "build.rs"
@@ -13,7 +13,7 @@ repository.workspace = true
 targets = ["x86_64-unknown-linux-gnu"]
 
 [[bin]]
-name = "substrate-contracts-node"
+name = "violet-node"
 path = "src/main.rs"
 
 [dependencies]
@@ -27,8 +27,10 @@ serde_json = { workspace = true }
 wasmtime = { workspace = true }
 
 # Local
-contracts-parachain-runtime = { path = "../parachain-runtime", features = ["parachain"], version = "0.41.0" }
-contracts-node-runtime = { path = "../runtime",  version = "0.41.0" }
+contracts-parachain-runtime = { path = "../parachain-runtime", features = [
+	"parachain",
+], version = "1.0.1" }
+violet-node-runtime = { path = "../runtime", version = "1.0.1" }
 
 # Substrate
 frame-benchmarking = { workspace = true }
@@ -98,5 +100,5 @@ runtime-benchmarks = [
 ]
 try-runtime = [
 	"try-runtime-cli/try-runtime",
-	"contracts-parachain-runtime/try-runtime"
+	"contracts-parachain-runtime/try-runtime",
 ]

@@ -8,6 +8,7 @@ include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
 
 mod assets_config;
 mod contracts_config;
+mod ordinals_config;
 
 use frame_support::{
 	derive_impl,
@@ -95,8 +96,8 @@ pub mod opaque {
 // https://docs.substrate.io/main-docs/build/upgrade#runtime-versioning
 #[sp_version::runtime_version]
 pub const VERSION: RuntimeVersion = RuntimeVersion {
-	spec_name: create_runtime_str!("substrate-contracts-node"),
-	impl_name: create_runtime_str!("substrate-contracts-node"),
+	spec_name: create_runtime_str!("violet-node"),
+	impl_name: create_runtime_str!("violet-node"),
 	authoring_version: 1,
 	// The version of the runtime specification. A full node will not attempt to use its native
 	//   runtime in substitute for the on-chain Wasm runtime unless all of `spec_name`,
@@ -279,6 +280,7 @@ construct_runtime!(
 		Sudo: pallet_sudo,
 		Contracts: pallet_contracts,
 		Assets: pallet_assets,
+		OrdinalsModule: pallet_ordinals,
 	}
 );
 

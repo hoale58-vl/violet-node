@@ -1,35 +1,37 @@
 [workspace.package]
-authors = ["anonymous"]
+authors = ["Hoa Le <https://github.com/hoale58-vl>"]
 edition = "2021"
-version = "0.41.0"
-license = "Unlicense"
 homepage = "https://github.com/paritytech/substrate-contracts-node"
-repository = "https://github.com/paritytech/substrate-contracts-node"
+version = "1.0.1"
+publish = true
+repository = "https://github.com/hoale58-vl/violet-node"
+license = "MIT-0"
+readme = "README.md"
 
 [workspace]
 resolver = "2"
-members = [
-	"node",
-	"runtime",
-	"parachain-runtime",
-]
+members = ["node", "runtime", "parachain-runtime"]
 
 [profile.release]
 panic = 'unwind'
 
 [workspace.dependencies]
 clap = { version = "4", features = ["derive"] }
-codec = { package = "parity-scale-codec", version = "3.6.9", default-features = false, features = ["derive"] }
+codec = { package = "parity-scale-codec", version = "3.6.9", default-features = false, features = [
+	"derive",
+] }
 futures = "0.3.30"
-hex-literal = { version = "0.4.1"}
+hex-literal = { version = "0.4.1" }
 jsonrpsee = { version = "0.22", features = ["server"] }
 log = { version = "0.4.20", default-features = false }
 serde = { version = "1.0.195", features = ["derive"] }
 serde_json = "1.0.111"
-scale-info = { version = "2.11.1", default-features = false, features = ["derive"] }
+scale-info = { version = "2.11.1", default-features = false, features = [
+	"derive",
+] }
 smallvec = "1.11.2"
 color-print = "0.3.5"
-wasmtime="8.0.1"
+wasmtime = "8.0.1"
 
 # Substrate
 frame-benchmarking = { version = "32.0.0", default-features = false }
@@ -122,7 +124,9 @@ cumulus-client-consensus-common = { version = "0.11.0" }
 cumulus-client-service = { version = "0.11.0" }
 cumulus-pallet-aura-ext = { version = "0.11.0", default-features = false }
 cumulus-pallet-dmp-queue = { version = "0.11.0", default-features = false }
-cumulus-pallet-parachain-system = { version = "0.11.0", default-features = false, features = ["parameterized-consensus-hook",] }
+cumulus-pallet-parachain-system = { version = "0.11.0", default-features = false, features = [
+	"parameterized-consensus-hook",
+] }
 cumulus-pallet-session-benchmarking = { version = "13.0.0", default-features = false }
 cumulus-pallet-xcm = { version = "0.11.0", default-features = false }
 cumulus-pallet-xcmp-queue = { version = "0.11.0", default-features = false }
@@ -134,4 +138,3 @@ cumulus-relay-chain-interface = { version = "0.11.0" }
 pallet-collator-selection = { version = "13.0.0", default-features = false }
 parachain-info = { version = "0.11.0", package = "staging-parachain-info", default-features = false }
 parachains-common = { version = "11.0.0", default-features = false }
-

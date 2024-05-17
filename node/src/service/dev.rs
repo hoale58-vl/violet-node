@@ -1,6 +1,6 @@
 //! Service and ServiceFactory implementation. Specialized wrapper over substrate service.
 
-use contracts_node_runtime::{self, opaque::Block, RuntimeApi};
+use violet_node_runtime::{self, opaque::Block, RuntimeApi};
 use futures::FutureExt;
 use sc_client_api::Backend;
 pub use sc_executor::NativeElseWasmExecutor;
@@ -21,11 +21,11 @@ impl sc_executor::NativeExecutionDispatch for ExecutorDispatch {
 	type ExtendHostFunctions = ();
 
 	fn dispatch(method: &str, data: &[u8]) -> Option<Vec<u8>> {
-		contracts_node_runtime::api::dispatch(method, data)
+		violet_node_runtime::api::dispatch(method, data)
 	}
 
 	fn native_version() -> sc_executor::NativeVersion {
-		contracts_node_runtime::native_version()
+		violet_node_runtime::native_version()
 	}
 }
 
